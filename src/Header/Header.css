@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../vendor/fonts/CabinetGrotesk-Medium.woff") format("woff");
+}
 .header {
   margin: auto;
   max-width: 1360px;
@@ -11,6 +15,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 32px;
 }
 
 .header__logo {
@@ -28,23 +33,27 @@
   padding: 0;
   margin-left: 12px;
   line-height: 24px;
-  font-family: Cabinet Grotesk;
   text-align: left;
+  font-family: "Cabinet Grotesk";
 }
 
 .header__add-clothes-user-details {
   display: flex;
   align-items: center;
+  margin-top: 32px;
+  font-family: "Cabinet Grotesk";
 }
 
 .header__add-clothes {
   font-size: 20px;
+  font-family: "Cabinet Grotesk";
   font-weight: 700;
   padding: 0;
   margin-right: 20px;
   line-height: 24px;
-  font-family: Cabinet Grotesk;
   text-align: left;
+  background-color: white;
+  border: none;
 }
 
 .header__user-name {
@@ -55,7 +64,6 @@
   padding: 0;
   margin-left: 12px;
   line-height: 24px;
-  font-family: Cabinet Grotesk;
   text-align: left;
 }
 .header__user-image {

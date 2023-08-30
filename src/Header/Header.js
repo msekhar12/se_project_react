@@ -2,12 +2,12 @@ import logo from "../images/Logo.png";
 import ellipse from "../images/Ellipse.png";
 import "./Header.css";
 
-function Header() {
+function Header(props) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
-  const location = "New York";
+  const location = props.location;
 
   return (
     <div className="header">

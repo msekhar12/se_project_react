@@ -1,10 +1,10 @@
 import Weather from "../Weather/Weather";
 import "./Main.css";
 
-function Main() {
+function Main(props) {
   return (
     <div className="main">
-      <Weather />
+      <Weather temp={props.temp} />
     </div>
   );
 }

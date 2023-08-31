@@ -21,8 +21,17 @@ function readWeatherData() {
 function getTempAndLocation(weatherData) {
   const temp = weatherData.main.temp;
   const location = weatherData.name;
+  let tempClass = null;
 
-  return { temp, location };
+  if (temp >= 86) {
+    tempClass = "hot";
+  } else if (temp >= 66 && temp <= 85) {
+    tempClass = "warm";
+  } else if (temp <= 65) {
+    tempClass = "cold";
+  }
+
+  return { temp, location, tempClass };
 }
 
 export { readWeatherData, getTempAndLocation };

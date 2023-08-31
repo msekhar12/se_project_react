@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../vendor/fonts/CabinetGrotesk-Medium.woff") format("woff");
+}
+.footer {
+  margin: 0;
+  max-width: 1360px;
+  min-width: 380px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 170px 0 24px 0;
+}
+
+.footer__text {
+  font-family: "Cabinet Grotesk";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding: 0;
+}
+
+.footer__year {
+  font-family: "Cabinet Grotesk";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: right;
+  padding: 0;
+}

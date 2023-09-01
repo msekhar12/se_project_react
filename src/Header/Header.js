@@ -16,9 +16,7 @@ function Header(props) {
         <p className="header__date-place">{currentDate + ", " + location}</p>
       </div>
       <div className="header__add-clothes-user-details">
-        <button type="text" className="header__add-clothes">
-          + Add Clothes
-        </button>
+        <button className="header__add-clothes">+ Add Clothes</button>
         <p className="header__user-name">Terrence Tegegne</p>
         <img src={ellipse} className="header__user-image" alt="User" />
       </div>

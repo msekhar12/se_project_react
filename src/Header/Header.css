@@ -54,6 +54,7 @@
   text-align: left;
   background-color: white;
   border: none;
+  cursor: pointer;
 }
 
 .header__user-name {

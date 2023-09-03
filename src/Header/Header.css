@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
   font-family: "Cabinet Grotesk";
   src: url("../vendor/fonts/CabinetGrotesk-Medium.woff") format("woff");
-}
+} */
 .header {
   margin: 0;
   max-width: 1360px;
@@ -34,19 +34,19 @@
   margin-left: 12px;
   line-height: 24px;
   text-align: left;
-  font-family: "Cabinet Grotesk";
+  /* font-family: "Cabinet Grotesk"; */
 }
 
 .header__add-clothes-user-details {
   display: flex;
   align-items: center;
   margin-top: 32px;
-  font-family: "Cabinet Grotesk";
+  /* font-family: "Cabinet Grotesk"; */
 }
 
 .header__add-clothes {
   font-size: 20px;
-  font-family: "Cabinet Grotesk";
+  font-family: "Cabinet Grotesk"; /*If I am not adding the font-family explicitly, it is not working*/
   font-weight: 700;
   padding: 0;
   margin-right: 20px;
@@ -58,14 +58,15 @@
 }
 
 .header__user-name {
-  width: 157px;
-  height: 25px;
+  /* width: 157px;
+  height: 25px; */
   font-size: 20px;
   font-weight: 700;
   padding: 0;
   margin-left: 12px;
   line-height: 24px;
   text-align: left;
+  /* font-family: "Cabinet Grotesk"; */
 }
 .header__user-image {
   width: 40px;

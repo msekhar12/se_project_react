@@ -4,6 +4,7 @@ import ItemContainer from "../ItemContainer/ItemContainer";
 import ItemContainerHeading from "../ItemContainerHeading/ItemContainerHeading";
 
 function Main(props) {
+  //console.log(props);
   return (
     <div className="main">
       <Weather temp={props.temp} />

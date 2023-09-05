@@ -1,0 +1,117 @@
+.item-modal {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+
+  /*Make the display: none, since the forms are shown for a split second
+      when the page loads, specially on the slow connections (tested with network throttling)
+      We will set the display:flex in the .item-modal__open modifier.
+      However, display:none is not applying the transition.
+      */
+  display: flex;
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  /*The poniter-events:none must be set when the form is NOT visible.
+        If NOT set, then the user can still see the pointer changing to clickable 
+        pointer when hovered over the invisible form elements. If clicked, 
+        the events are processed, as if the form is visible*/
+  pointer-events: none;
+  /*This transition will make the item-modal fade away, instead of abruptly closing*/
+  /*The transition does not apply for the display property. You have to use visibility property*/
+  /* transition: visibility 0s, opacity 0.5s linear; */
+  transition: visibility 0.2s, opacity 0.2s linear;
+}
+
+/*item-modal__container is needed to combine the item-modal close button and 
+    item-modal__content*/
+.item-modal__container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 496px;
+  min-height: 436px;
+}
+
+.item-modal__content {
+  display: flex;
+  flex-direction: column;
+  /* min-width: 430px;
+    min-height: 330px; */
+  background: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  /* opacity: 1; */
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.item-modal__heading {
+  margin: 28px 0px 24px 28px;
+  padding: 0;
+
+  /* font-family: "Cabinet Grotesk"; */
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+}
+
+.item-modal__line {
+  flex-grow: 1;
+  /* opacity: 0.2; */
+  border-bottom: 1px solid #000000;
+  margin: 0 0 30px 0;
+}
+
+.item-modal__close {
+  background: url("../images/cross.png");
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-sizing: border-box;
+  border: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  padding: 0;
+  margin: 0;
+}
+
+.item-modal__close:hover {
+  opacity: 0.6;
+}
+
+/*
+      .item-modal_open should not have a delay for visibility transition 
+      (when we open a popup visibility will become visible immediately)
+      */
+/*
+      see this for more info:
+      https://stackoverflow.com/questions/3331353/transitions-on-the-css-display-property
+      */
+.item-modal_open {
+  /* display: flex; */
+  visibility: visible;
+  /*The following opacity setting is necessary even thouh we are using opacity in transition*/
+  opacity: 1;
+  /*This transition will make the item-modal slowly be visible instead of abruptly being visible*/
+  /* transition: visibility 0.5s, opacity 0.5s linear; */
+
+  /*The poniter-events:all must be set when the form is visible.
+        If NOT set, then the user cannot interact with the form*/
+  pointer-events: all;
+}

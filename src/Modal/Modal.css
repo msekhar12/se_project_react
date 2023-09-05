@@ -1,0 +1,246 @@
+.modal {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+
+  /*Make the display: none, since the forms are shown for a split second
+      when the page loads, specially on the slow connections (tested with network throttling)
+      We will set the display:flex in the .modal__open modifier.
+      However, display:none is not applying the transition.
+      */
+  display: flex;
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  /*The poniter-events:none must be set when the form is NOT visible.
+        If NOT set, then the user can still see the pointer changing to clickable 
+        pointer when hovered over the invisible form elements. If clicked, 
+        the events are processed, as if the form is visible*/
+  pointer-events: none;
+  /*This transition will make the modal fade away, instead of abruptly closing*/
+  /*The transition does not apply for the display property. You have to use visibility property*/
+  /* transition: visibility 0s, opacity 0.5s linear; */
+  transition: visibility 0.2s, opacity 0.2s linear;
+}
+
+/*modal__container is needed to combine the modal close button and 
+    modal__content*/
+.modal__container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 496px;
+  min-height: 436px;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  /* min-width: 430px;
+    min-height: 330px; */
+  background: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  /* opacity: 1; */
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.modal__heading {
+  margin: 28px 0px 24px 28px;
+  padding: 0;
+
+  /* font-family: "Cabinet Grotesk"; */
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+}
+
+.modal__label {
+  display: flex;
+  flex-direction: column;
+  /*the position must be relative to make the error message's 
+      absolute position is relative to the label. 
+      See profile-modal__error*/
+  position: relative;
+
+  font-family: "Cabinet Grotesk";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.modal__text-input {
+  color: #000000;
+  font-family: "Cabinet Grotesk";
+  border: 0;
+  /*outline: none will remove border display when trying to enter text*/
+  outline: none;
+  margin: 0;
+  /* width: 358px; */
+  width: 100%;
+  padding: 0;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.modal__line {
+  flex-grow: 1;
+  /* opacity: 0.2; */
+  border-bottom: 1px solid #000000;
+  margin: 0 0 30px 0;
+}
+
+.modal__input-error {
+  position: absolute;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  color: #ff0000;
+  top: 35px;
+  /*Hide the error element initially*/
+  visibility: hidden;
+}
+
+.modal__input-error_display {
+  visibility: visible;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 28px 26px 28px;
+}
+
+.modal__submit {
+  color: #ffffff;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  margin: 36px 0 0 0;
+  background: #0000004d;
+  font-family: "Cabinet Grotesk";
+  width: 124px;
+  height: 36px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.modal__submit_inactive {
+  opacity: 0.2;
+  cursor: default;
+}
+
+/*selects disabled hovered button*/
+.modal__submit_inactive:hover {
+  background-color: #000000;
+}
+
+/*
+    .modal__submit:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+      transition: background-color 0.1s linear 0.1s;
+    }
+    */
+
+/*selects not disabled hovered button*/
+.modal__submit:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: background-color 0.1s linear 0.1s;
+}
+
+.modal__close {
+  background: url("../images/cross.png");
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-sizing: border-box;
+  border: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  padding: 0;
+  margin: 0;
+}
+
+.modal__close:hover {
+  opacity: 0.6;
+}
+
+/*
+      .modal_open should not have a delay for visibility transition 
+      (when we open a popup visibility will become visible immediately)
+      */
+/*
+      see this for more info:
+      https://stackoverflow.com/questions/3331353/transitions-on-the-css-display-property
+      */
+.modal_open {
+  /* display: flex; */
+  visibility: visible;
+  /*The following opacity setting is necessary even thouh we are using opacity in transition*/
+  opacity: 1;
+  /*This transition will make the modal slowly be visible instead of abruptly being visible*/
+  /* transition: visibility 0.5s, opacity 0.5s linear; */
+
+  /*The poniter-events:all must be set when the form is visible.
+        If NOT set, then the user cannot interact with the form*/
+  pointer-events: all;
+}
+
+.modal__radio-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal__radio-block-heading {
+  /* font-family: "Cabinet Grotesk"; */
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+  margin: 0;
+}
+
+.modal__radio-block_input {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+input[type="radio"] + label {
+  color: #00000080;
+}
+
+input[type="radio"]:checked + label {
+  color: black;
+}

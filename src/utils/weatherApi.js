@@ -21,7 +21,7 @@ function readWeatherData() {
 function getTempAndLocation(weatherData) {
   const temp = weatherData.main.temp;
   const location = weatherData.name;
-  let tempClass = null;
+  let tempClass = undefined;
 
   if (temp >= 86) {
     tempClass = "hot";

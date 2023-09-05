@@ -8,7 +8,7 @@ function Header(props) {
     day: "numeric",
   });
   const location = props.location;
-  console.log(props.handleAddGarmentsClick);
+  // console.log(props.handleAddGarmentsClick);
   return (
     <div className="header">
       <div className="header__logo-time-place">

@@ -1,5 +1,4 @@
-//import React, { useEffect } from "react";
-
+import React, { useState } from "react";
 import cloudyDay from "../images/cloudyDay.png";
 import cloudyNight from "../images/cloudyNight.png";
 import rainDay from "../images/rainDay.png";
@@ -30,18 +29,39 @@ function Weather(props) {
   //     });
   //   }, [props.lat, props.long]);
 
+  // const [imageFile, setImageFile] = useState(
+  //   props.night ? props.weatherCond + "Night" : props.weatherCond + "Day"
+  // );
+
+  const [weatherCSS, setWeatherCSS] = useState(
+    "weather weather__" + props.weatherCond + (props.night ? "-night" : "-day")
+  );
+
   return (
-    <div className="weather">
-      <img
-        src={
-          props.night ? props.weatherCond + "Night" : props.weatherCond + "Day"
-        }
-        alt="weather"
-        className="weather__image"
-      />
+    <div className={weatherCSS}>
+      {/* <img src={imageFile} alt="weather" className="weather__image" /> */}
+      {/* <img src={cloudyDay} alt="weather" className="weather__image" /> */}
+      {/* <img
+          src={`../images/cloudyDay.png`}
+          alt="weather"
+          className="weather__image"
+        /> */}
       <p className="weather__text">{`${props.temp}°F`}</p>
     </div>
   );
+
+  // return (
+  //   <div className="weather weather__cloudy-day">
+  //     {/* <img src={imageFile} alt="weather" className="weather__image" /> */}
+  //     {/* <img src={cloudyDay} alt="weather" className="weather__image" /> */}
+  //     {/* <img
+  //       src={`../images/cloudyDay.png`}
+  //       alt="weather"
+  //       className="weather__image"
+  //     /> */}
+  //     <p className="weather__text">{`${props.temp}°F`}</p>
+  //   </div>
+  // );
 }
 
 export default Weather;

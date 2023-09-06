@@ -4,7 +4,7 @@ import ItemContainer from "../ItemContainer/ItemContainer";
 import ItemContainerHeading from "../ItemContainerHeading/ItemContainerHeading";
 
 function Main(props) {
-  // console.log(`in main: ${props.tempClass}`);
+  console.log(`in main: ${props.weatherCond}`);
   return (
     <div className="main">
       <Weather

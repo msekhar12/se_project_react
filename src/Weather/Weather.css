@@ -3,9 +3,28 @@
   padding: 20px 0 0 0;
   max-width: 1360px;
   min-width: 380px;
+  min-height: 80px;
   width: 100%;
   margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
 }
+
+.weather__cloudy-day {
+  background-image: url("../images/cloudyDay.png");
+  /* background-size: contain; */
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.weather__cloudy-night {
+  background-image: url("../images/cloudyNight.png");
+  /* background-size: contain; */
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
 /*
 margin: 0;
   max-width: 1360px;
@@ -22,8 +41,8 @@ margin: 0;
 
 .weather__text {
   padding-left: 16px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   font-family: "Cabinet Grotesk";
   font-size: 36px;
   font-weight: 700;

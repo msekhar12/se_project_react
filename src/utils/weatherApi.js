@@ -1,4 +1,4 @@
-import { weatherApiKey, location } from "./constants";
+import { weatherApiKey, location, weatherCodes } from "./constants";
 
 //https://api.openweathermap.org/data/2.5/weather?lat=41.8500&lon=-87.6501&units=imperial&appid=0afee0b2e41a4a98993e15ce04df856d
 
@@ -21,6 +21,24 @@ function readWeatherData() {
 function getTempAndLocation(weatherData) {
   const temp = weatherData.main.temp;
   const location = weatherData.name;
+  let weatherCond = "sunny";
+  if (weatherData.weather[0].id != undefined) {
+    if (parseInt(weatherData.weather[0].id) == 800) {
+      weatherCond = "sunny";
+    } else {
+      const code = Math.floor(parseInt(weatherData.weather[0].id) / 100);
+
+      if (weatherCodes[code] != undefined) {
+        weatherCond = weatherCodes[code];
+      }
+    }
+  }
+  console.log(`weatherCond: ${weatherCond}`);
+
+  const currentHour = new Date().getHours();
+
+  const night = currentHour < 6 && currentHour > 6;
+
   let tempClass = undefined;
 
   if (temp >= 86) {
@@ -31,7 +49,7 @@ function getTempAndLocation(weatherData) {
     tempClass = "cold";
   }
 
-  return { temp, location, tempClass };
+  return { temp, location, tempClass, weatherCond, night };
 }
 
 export { readWeatherData, getTempAndLocation };

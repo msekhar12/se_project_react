@@ -7,7 +7,12 @@ function Main(props) {
   // console.log(`in main: ${props.tempClass}`);
   return (
     <div className="main">
-      <Weather temp={props.temp} />
+      <Weather
+        temp={props.temp}
+        tempClass={props.tempClass}
+        weatherCond={props.weatherCond}
+        night={props.night}
+      />
       <ItemContainerHeading temp={props.temp} />
       <ItemContainer tempClass={props.tempClass} />
     </div>

@@ -30,7 +30,7 @@ export default function ItemContainer(props) {
                     ...clickedItem,
                     name: item.name,
                     link: item.link,
-                    temClass: item.weather,
+                    tempClass: item.weather,
                     state: true,
                   })
                 }
@@ -50,6 +50,10 @@ export default function ItemContainer(props) {
           }
         >
           <img src={clickedItem.link} />
+          <div className="item-modal__info-block">
+            <h3 className="item-modal__info-block_text">{clickedItem.name}</h3>
+            <h3 className="item-modal__info-block_text">{`Weather: ${clickedItem.tempClass}`}</h3>
+          </div>
         </ItemModal>
       )}
     </>

@@ -25,6 +25,8 @@ function App() {
           temp: newData.temp,
           location: newData.location,
           tempClass: newData.tempClass,
+          weatherCond: newData.weatherCond,
+          night: newData.night,
         });
       })
       .catch();
@@ -36,7 +38,12 @@ function App() {
         location={tempData.location}
         handleAddGarmentsClick={() => setAddGarments(true)}
       />
-      <Main temp={tempData.temp} tempClass={tempData.tempClass} />
+      <Main
+        temp={tempData.temp}
+        tempClass={tempData.tempClass}
+        weatherCond={tempData.weatherCond}
+        night={tempData.night}
+      />
       <Footer />
 
       {addGarments && (

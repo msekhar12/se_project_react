@@ -33,9 +33,10 @@ function getTempAndLocation(weatherData) {
       }
     }
   }
-  console.log(`weatherCond: ${weatherCond}`);
+  console.log(`In weather API weatherCond: ${weatherCond}`);
 
   const currentHour = new Date().getHours();
+  //const currentTime = new Date().now();
 
   const night = currentHour < 6 && currentHour > 6;
 

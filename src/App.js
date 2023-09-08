@@ -32,6 +32,8 @@ function App() {
       .catch();
   }, []);
 
+  console.log(`In app.js weatherCond: ${tempData.weatherCond}`);
+
   return (
     <div className="App">
       <Header

@@ -18,6 +18,14 @@ function readWeatherData() {
   return weatherData;
 }
 
+function checkIfNight(timeZone, sunRise, sunSet) {
+  // Get current time
+  const currentTime = Date.now() + timeZone;
+  // console.log(`currentTime human readable: ${new Date(currentTime)}`);
+  // console.log(`currentTime: ${currentTime}`);
+  return !(currentTime >= sunRise * 1000 && currentTime <= sunSet * 1000);
+}
+
 function getTempAndLocation(weatherData) {
   const temp = weatherData.main.temp;
   const location = weatherData.name;
@@ -33,12 +41,25 @@ function getTempAndLocation(weatherData) {
       }
     }
   }
-  console.log(`In weather API weatherCond: ${weatherCond}`);
 
-  const currentHour = new Date().getHours();
-  //const currentTime = new Date().now();
+  const timeZone = weatherData.timezone;
+  const sunRise = weatherData.sys.sunrise;
+  const sunSet = weatherData.sys.sunset;
+  const night = checkIfNight(timeZone, sunRise, sunSet);
 
-  const night = currentHour < 6 && currentHour > 6;
+  // console.log(`timeZone: ${timeZone}`);
+  // console.log(`sunRise: ${sunRise}`);
+  // console.log(`sunrise human readable: ${new Date(sunRise * 1000)}`);
+  // console.log(`sunSet: ${sunSet}`);
+  // console.log(`sunSet human readable: ${new Date(sunSet * 1000)}`);
+  // console.log(`night: ${night}`);
+
+  // const currentHour = new Date().getHours();
+  // const start = Date.now();
+
+  // console.log(`current time: ${start}`);
+
+  // const night = currentHour < 6 && currentHour > 6;
 
   let tempClass = undefined;
 

@@ -12,10 +12,6 @@ function App() {
   const [tempData, setTempData] = React.useState({});
   const [addGarments, setAddGarments] = React.useState(false);
 
-  // if (addGarments) {
-  //   console.log(document.querySelector(".modal"));
-  // }
-
   React.useEffect(() => {
     readWeatherData()
       .then((data) => {
@@ -31,8 +27,6 @@ function App() {
       })
       .catch();
   }, []);
-
-  console.log(`In app.js weatherCond: ${tempData.weatherCond}`);
 
   return (
     <div className="App">

@@ -1,16 +1,20 @@
 export const location = {
   // latitude: 41.85,
   // longitude: -87.65,
-  // latitude: 32.779167,
-  // longitude: -96.808891,
-  latitude: 63.5888,
-  longitude: 154.4931,
+  //latitude: 32.779167,
+  //longitude: -96.808891,
+  //latitude: 63.5888,
+  //longitude: 154.4931,
+  //latitude: 17.38714,
+  //longitude: 78.491684,
+  latitude: 51.509865,
+  longitude: -0.118092,
 };
 
 // Key to get data from https://openweathermap.org
 export const weatherApiKey = "0afee0b2e41a4a98993e15ce04df856d";
 
-//https://api.openweathermap.org/data/2.5/weather?lat=41.8500&lon=-87.6501&units=imperial&appid=0afee0b2e41a4a98993e15ce04df856d
+//https://api.openweathermap.org/data/2.5/weather?lat=63.5888&lon=154.49311&units=imperial&appid=0afee0b2e41a4a98993e15ce04df856d
 
 // Check if ID is 800.
 // If not 800, get ID//100, and use that to find the weather condition

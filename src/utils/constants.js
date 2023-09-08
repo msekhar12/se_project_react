@@ -1,8 +1,8 @@
 export const location = {
   // latitude: 41.85,
   // longitude: -87.65,
-  //latitude: 32.779167,
-  //longitude: -96.808891,
+  // latitude: 32.779167,
+  // longitude: -96.808891,
   //latitude: 63.5888,
   //longitude: 154.4931,
   //latitude: 17.38714,

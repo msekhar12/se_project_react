@@ -174,7 +174,7 @@
 }
 
 .modal__close {
-  background: url("../images/cross.png");
+  background: url("../../images/cross.png");
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;

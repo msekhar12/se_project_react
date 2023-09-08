@@ -1,7 +1,7 @@
 import "./ItemContainer.css";
 import Item from "../Item/Item";
 import ItemModal from "../ItemModal/ItemModal";
-import { defaultClothingItems } from "../utils/constants";
+import { defaultClothingItems } from "../../utils/constants";
 import React from "react";
 
 export default function ItemContainer(props) {

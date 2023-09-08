@@ -63,11 +63,11 @@ function getTempAndLocation(weatherData) {
 
   let tempClass = undefined;
 
-  if (temp >= 86) {
+  if (temp > 86) {
     tempClass = "hot";
-  } else if (temp >= 66 && temp <= 85) {
+  } else if (temp > 66 && temp <= 86) {
     tempClass = "warm";
-  } else if (temp <= 65) {
+  } else if (temp <= 66) {
     tempClass = "cold";
   }
 

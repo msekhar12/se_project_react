@@ -1,5 +1,5 @@
-import logo from "../images/Logo.png";
-import ellipse from "../images/Ellipse.png";
+import logo from "../../images/Logo.png";
+import ellipse from "../../images/Ellipse.png";
 import "./Header.css";
 
 function Header(props) {

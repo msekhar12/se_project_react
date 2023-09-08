@@ -1,12 +1,12 @@
 // import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
-import { readWeatherData, getTempAndLocation } from "./utils/weatherApi";
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
-import Main from "./Main/Main";
+import { readWeatherData, getTempAndLocation } from "../../utils/weatherApi";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import Main from "../Main/Main";
 // import ModalWithForm from "./ModalWithFormOld/ModalWithForm";
-import Modal from "./Modal/Modal";
+import Modal from "../Modal/Modal";
 
 function App() {
   const [tempData, setTempData] = React.useState({});

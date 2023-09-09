@@ -1,7 +1,7 @@
 import "./ItemModal.css";
-import React from "react";
+import { useRef, useEffect } from "react";
 
-export default function ItemModal(props) {
+export default function ItemModal({ handleItemClose, children }) {
   /* Do NOT handle visibility as a state here. Handle it from outside.
     If we try to handle it here it won't work*/
   // const [visibility, setVisibility] = React.useState(props.visibility);
@@ -9,22 +9,22 @@ export default function ItemModal(props) {
   //   console.log(props.visibility);
 
   //const [visibility, setVisibility] = React.useState(false);
-  let modalRef = React.useRef();
+  const modalRef = useRef();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const close = (e) => {
       if (e.key === "Escape") {
-        props.handleItemClose();
+        handleItemClose();
       }
     };
     window.addEventListener("keydown", close);
     return () => window.removeEventListener("keydown", close);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const mouseClickHandler = (e) => {
       if (!modalRef.current.contains(e.target)) {
-        props.handleItemClose();
+        handleItemClose();
       }
     };
 
@@ -38,9 +38,9 @@ export default function ItemModal(props) {
         <button
           className="item-modal__close"
           type="button"
-          onClick={props.handleItemClose}
+          onClick={handleItemClose}
         ></button>
-        {props.children}
+        {children}
       </div>
     </div>
   );

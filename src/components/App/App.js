@@ -1,6 +1,7 @@
 // import logo from "./logo.svg";
 import "./App.css";
-import React from "react";
+//import React from "react";
+import React, { useState, useEffect } from "react";
 import { readWeatherData, getTempAndLocation } from "../../utils/weatherApi";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -9,10 +10,10 @@ import Main from "../Main/Main";
 import Modal from "../Modal/Modal";
 
 function App() {
-  const [tempData, setTempData] = React.useState({});
-  const [addGarments, setAddGarments] = React.useState(false);
+  const [tempData, setTempData] = useState({});
+  const [garments, setGarments] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     readWeatherData()
       .then((data) => {
         const newData = getTempAndLocation(data);
@@ -25,14 +26,16 @@ function App() {
           night: newData.night,
         });
       })
-      .catch();
+      .catch(() =>
+        console.log("Error occurred while reading the weather data.")
+      );
   }, []);
 
   return (
     <div className="App">
       <Header
         location={tempData.location}
-        handleAddGarmentsClick={() => setAddGarments(true)}
+        handleAddGarmentsClick={() => setGarments(true)}
       />
       <Main
         temp={tempData.temp}
@@ -42,14 +45,13 @@ function App() {
       />
       <Footer />
 
-      {addGarments && (
+      {garments && (
         <Modal
           name="new-garment"
           heading="New Garment"
           id="new-garment"
-          // visibility={addGarments}
-          handleCloseModalClick={() => setAddGarments(false)}
-          onCloseModal={() => setAddGarments(false)}
+          handleCloseModalClick={() => setGarments(false)}
+          onCloseModal={() => setGarments(false)}
         >
           <label className="modal__label">
             Name

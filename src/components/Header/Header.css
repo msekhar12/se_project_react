@@ -57,6 +57,10 @@
   cursor: pointer;
 }
 
+.header__add-clothes:hover {
+  opacity: 0.6;
+}
+
 .header__user-name {
   /* width: 157px;
   height: 25px; */

@@ -1,7 +1,13 @@
 import "./Modal.css";
-import React from "react";
+import { useRef, useEffect } from "react";
 
-export default function Modal(props) {
+export default function Modal({
+  onCloseModal,
+  handleCloseModalClick,
+  heading,
+  name,
+  children,
+}) {
   /* Do NOT handle visibility as a state here. Handle it from outside.
     If we try to handle it here it won't work*/
   // const [visibility, setVisibility] = React.useState(props.visibility);
@@ -12,22 +18,22 @@ export default function Modal(props) {
   // console.log("In modal");
   // console.log(document.querySelector(".modal"));
 
-  let modalRef = React.useRef();
+  let modalRef = useRef();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const close = (e) => {
       if (e.key === "Escape") {
-        props.onCloseModal();
+        onCloseModal();
       }
     };
     window.addEventListener("keydown", close);
     return () => window.removeEventListener("keydown", close);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const mouseClickHandler = (e) => {
       if (!modalRef.current.contains(e.target)) {
-        props.onCloseModal();
+        onCloseModal();
       }
     };
 
@@ -36,23 +42,17 @@ export default function Modal(props) {
   }, []);
 
   return (
-    // <div className={props.visibility ? "modal modal_open" : "modal"}>
     <div className="modal modal_open">
       <div className="modal__container" ref={modalRef}>
         <button
           className="modal__close"
           type="button"
-          onClick={props.handleCloseModalClick}
+          onClick={handleCloseModalClick}
         ></button>
         <div className="modal__content">
-          <h3 className="modal__heading">{props.heading}</h3>
-          <form
-            className="modal__form"
-            name={props.name}
-            id={props.name}
-            noValidate
-          >
-            {props.children}
+          <h3 className="modal__heading">{heading}</h3>
+          <form className="modal__form" name={name} id={name} noValidate>
+            {children}
             <button type="submit" className="modal__submit">
               Save
             </button>

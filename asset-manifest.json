@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/se_project_react/static/css/main.5cab732d.css",
+    "main.js": "/se_project_react/static/js/main.9d9e24ac.js",
+    "static/js/787.79f92504.chunk.js": "/se_project_react/static/js/787.79f92504.chunk.js",
+    "static/media/CabinetGrotesk-Medium.woff": "/se_project_react/static/media/CabinetGrotesk-Medium.ed9c4b9af2fe3a8dd14d.woff",
+    "static/media/fogNight.png": "/se_project_react/static/media/fogNight.b76c9ef2a50662339f47.png",
+    "static/media/fogDay.png": "/se_project_react/static/media/fogDay.6c3c0d1bb2568abe9262.png",
+    "index.html": "/se_project_react/index.html",
+    "main.5cab732d.css.map": "/se_project_react/static/css/main.5cab732d.css.map",
+    "main.9d9e24ac.js.map": "/se_project_react/static/js/main.9d9e24ac.js.map",
+    "787.79f92504.chunk.js.map": "/se_project_react/static/js/787.79f92504.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5cab732d.css",
+    "static/js/main.9d9e24ac.js"
+  ]
+}

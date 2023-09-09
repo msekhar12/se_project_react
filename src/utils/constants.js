@@ -1,14 +1,16 @@
 export const location = {
-  // latitude: 41.85,
-  // longitude: -87.65,
-  // latitude: 32.779167,
-  // longitude: -96.808891,
+  latitude: 41.85,
+  longitude: -87.65,
+  //latitude: 32.779167,
+  //longitude: -96.808891,
   //latitude: 63.5888,
   //longitude: 154.4931,
   //latitude: 17.38714,
   //longitude: 78.491684,
-  latitude: 51.509865,
-  longitude: -0.118092,
+  //latitude: 51.509865,
+  //longitude: -0.118092,
+  //latitude: 33.4484,
+  //longitude: 112.074,
 };
 
 // Key to get data from https://openweathermap.org

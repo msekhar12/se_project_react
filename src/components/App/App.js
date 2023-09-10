@@ -8,7 +8,7 @@ import FormModal from "../FormModal/FormModal";
 
 function App() {
   const [tempData, setTempData] = useState({});
-  const [addGarments, setAddGarments] = useState(false);
+  const [garments, setGarments] = useState(false);
 
   useEffect(() => {
     readWeatherData()
@@ -32,7 +32,7 @@ function App() {
     <div className="App">
       <Header
         location={tempData.location}
-        handleAddGarmentsClick={() => setAddGarments(true)}
+        handleAddGarmentsClick={() => setGarments(true)}
       />
       <Main
         temp={tempData.temp}
@@ -42,14 +42,13 @@ function App() {
       />
       <Footer />
 
-      {addGarments && (
+      {garments && (
         <FormModal
           name="new-garment"
           heading="New Garment"
           id="new-garment"
-          // visibility={addGarments}
-          handleCloseModalClick={() => setAddGarments(false)}
-          onCloseModal={() => setAddGarments(false)}
+          handleCloseModalClick={() => setGarments(false)}
+          onCloseModal={() => setGarments(false)}
         >
           <label className="form-modal__label">
             Name

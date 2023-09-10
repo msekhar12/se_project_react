@@ -1,12 +1,12 @@
 import "./Item.css";
-export default function Item(props) {
+export default function Item({ handleItemClick, name, imageUrl }) {
   return (
-    <div className="item" onClick={props.handleItemClick}>
+    <div className="item" onClick={handleItemClick}>
       <div className="item__name-container">
-        <p className="item__name">{props.name}</p>
+        <p className="item__name">{name}</p>
       </div>
 
-      <img src={props.imageUrl} className="item__image" />
+      <img src={imageUrl} className="item__image" />
     </div>
   );
 }

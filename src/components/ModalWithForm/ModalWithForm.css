@@ -1,4 +1,4 @@
-.form-modal {
+.modal-with-form {
   width: 100vw;
   height: 100vh;
   flex-direction: column;
@@ -13,7 +13,7 @@
 
   /*Make the display: none, since the forms are shown for a split second
       when the page loads, specially on the slow connections (tested with network throttling)
-      We will set the display:flex in the .form-modal__open modifier.
+      We will set the display:flex in the .modal-with-form__open modifier.
       However, display:none is not applying the transition.
       */
   display: flex;
@@ -33,7 +33,7 @@
 
 /*modal__container is needed to combine the modal close button and 
     modal__content*/
-.form-modal__container {
+.modal-with-form__container {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -41,7 +41,7 @@
   min-height: 436px;
 }
 
-.form-modal__content {
+.modal-with-form__content {
   display: flex;
   flex-direction: column;
   /* min-width: 430px;
@@ -55,7 +55,7 @@
   height: 100%;
 }
 
-.form-modal__heading {
+.modal-with-form__heading {
   margin: 28px 0px 24px 28px;
   padding: 0;
 
@@ -68,7 +68,7 @@
   color: #000000;
 }
 
-.form-modal__label {
+.modal-with-form__label {
   display: flex;
   flex-direction: column;
   /*the position must be relative to make the error message's 
@@ -84,7 +84,7 @@
   text-align: left;
 }
 
-.form-modal__text-input {
+.modal-with-form__text-input {
   color: #000000;
   font-family: "Cabinet Grotesk";
   border: 0;
@@ -102,14 +102,14 @@
   text-align: left;
 }
 
-.form-modal__line {
+.modal-with-form__line {
   flex-grow: 1;
   /* opacity: 0.2; */
   border-bottom: 1px solid #000000;
   margin: 0 0 30px 0;
 }
 
-.form-modal__input-error {
+.modal-with-form__input-error {
   position: absolute;
   font-family: "Inter";
   font-style: normal;
@@ -122,17 +122,17 @@
   visibility: hidden;
 }
 
-.form-modal__input-error_display {
+.modal-with-form__input-error_display {
   visibility: visible;
 }
 
-.form-modal__form {
+.modal-with-form__form {
   display: flex;
   flex-direction: column;
   margin: 0 28px 26px 28px;
 }
 
-.form-modal__submit {
+.modal-with-form__submit {
   color: #ffffff;
   padding: 0;
   border: 0;
@@ -150,30 +150,30 @@
   text-align: center;
 }
 
-.form-modal__submit_inactive {
+.modal-with-form__submit_inactive {
   opacity: 0.2;
   cursor: default;
 }
 
 /*selects disabled hovered button*/
-.form-modal__submit_inactive:hover {
+.modal-with-form__submit_inactive:hover {
   background-color: #000000;
 }
 
 /*
-    .form-modal__submit:hover {
+    .modal-with-form__submit:hover {
       background-color: rgba(0, 0, 0, 0.8);
       transition: background-color 0.1s linear 0.1s;
     }
     */
 
 /*selects not disabled hovered button*/
-.form-modal__submit:hover:not(:disabled) {
+.modal-with-form__submit:hover:not(:disabled) {
   background-color: rgba(0, 0, 0, 0.8);
   transition: background-color 0.1s linear 0.1s;
 }
 
-.form-modal__close {
+.modal-with-form__close {
   background: url("../../images/cross.png");
   width: 20px;
   height: 20px;
@@ -189,19 +189,19 @@
   margin: 0;
 }
 
-.form-modal__close:hover {
+.modal-with-form__close:hover {
   opacity: 0.6;
 }
 
 /*
-      .form-modal_open should not have a delay for visibility transition 
+      .modal-with-form_open should not have a delay for visibility transition 
       (when we open a popup visibility will become visible immediately)
       */
 /*
       see this for more info:
       https://stackoverflow.com/questions/3331353/transitions-on-the-css-display-property
       */
-.form-modal_open {
+.modal-with-form_open {
   /* display: flex; */
   visibility: visible;
   /*The following opacity setting is necessary even thouh we are using opacity in transition*/
@@ -214,13 +214,13 @@
   pointer-events: all;
 }
 
-.form-modal__radio-block {
+.modal-with-form__radio-block {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.form-modal__radio-block-heading {
+.modal-with-form__radio-block-heading {
   /* font-family: "Cabinet Grotesk"; */
   font-size: 16px;
   font-weight: 700;
@@ -231,7 +231,7 @@
   margin: 0;
 }
 
-.form-modal__radio-block_input {
+.modal-with-form__radio-block_input {
   display: flex;
   flex-direction: row;
   gap: 8px;

@@ -6,26 +6,23 @@
   position: relative;
   min-width: 498px;
   min-height: 610px;
-  /* background: white; */
+  background: white;
   border-radius: 10px;
 }
 
 .item-modal__content {
   display: flex;
   flex-direction: column;
-  /* min-width: 430px;
-    min-height: 330px; */
   background: #ffffff;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
-  /* opacity: 1; */
   margin: auto;
   width: 100%;
   height: 100%;
 }
 
 .item-modal__image {
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
 }
 
 .item-modal__info-block {
@@ -33,6 +30,7 @@
   display: flex;
   flex-direction: column;
   margin: 20px 0 32px 32px;
+  border-radius: 0 0 10px 10px;
 }
 
 .item-modal__info-block_text {
@@ -85,25 +83,5 @@
 
 .item-modal__close:hover {
   opacity: 0.6;
-}
-
-/*
-      .item-modal_open should not have a delay for visibility transition 
-      (when we open a popup visibility will become visible immediately)
-      */
-/*
-      see this for more info:
-      https://stackoverflow.com/questions/3331353/transitions-on-the-css-display-property
-      */
-.item-modal_open {
-  /* display: flex; */
-  visibility: visible;
-  /*The following opacity setting is necessary even thouh we are using opacity in transition*/
-  opacity: 1;
-  /*This transition will make the item-modal slowly be visible instead of abruptly being visible*/
-  /* transition: visibility 0.5s, opacity 0.5s linear; */
-
-  /*The poniter-events:all must be set when the form is visible.
-        If NOT set, then the user cannot interact with the form*/
-  pointer-events: all;
+  /* filter: hue-rotate(180deg); */
 }

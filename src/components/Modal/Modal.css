@@ -10,14 +10,7 @@
   z-index: 1;
   justify-content: center;
   align-items: center;
-
-  /*Make the display: none, since the forms are shown for a split second
-        when the page loads, specially on the slow connections (tested with network throttling)
-        We will set the display:flex in the .item-modal__open modifier.
-        However, display:none is not applying the transition.
-        */
   display: flex;
-  /* display: none; */
   visibility: hidden;
   opacity: 0;
   /*The poniter-events:none must be set when the form is NOT visible.

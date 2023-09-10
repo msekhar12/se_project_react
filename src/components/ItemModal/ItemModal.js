@@ -1,5 +1,4 @@
 import "./ItemModal.css";
-
 import Modal from "../Modal/Modal";
 
 export default function ItemModal({ handleItemClose, children }) {

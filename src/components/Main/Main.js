@@ -1,19 +1,19 @@
 import Weather from "../Weather/Weather";
 import "./Main.css";
-import ItemContainer from "../ItemContainer/ItemContainer";
-import ItemContainerHeading from "../ItemContainerHeading/ItemContainerHeading";
+import ItemsContainer from "../ItemsContainer/ItemsContainer";
+import WeatherCard from "../WeatherCard/WeatherCard";
 
-function Main(props) {
+function Main({ temp, tempClass, weatherCond, night }) {
   return (
     <div className="main">
       <Weather
-        temp={props.temp}
-        tempClass={props.tempClass}
-        weatherCond={props.weatherCond}
-        night={props.night}
+        temp={temp}
+        tempClass={tempClass}
+        weatherCond={weatherCond}
+        night={night}
       />
-      <ItemContainerHeading temp={props.temp} />
-      <ItemContainer tempClass={props.tempClass} />
+      <WeatherCard temp={temp} />
+      <ItemsContainer tempClass={tempClass} />
     </div>
   );
 }

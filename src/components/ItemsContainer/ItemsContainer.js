@@ -1,13 +1,11 @@
-import "./ItemContainer.css";
-import Item from "../Item/Item";
+import "./ItemsContainer.css";
+import ItemCard from "../ItemCard/ItemCard";
 import ItemModal from "../ItemModal/ItemModal";
 import { defaultClothingItems } from "../../utils/constants";
 import React, { useState } from "react";
 
-export default function ItemContainer(props) {
-  const [clickedItem, setClickedItem] = useState({
-    state: false,
-  });
+export default function ItemsContainer({ tempClass }) {
+  const [clickedItem, setClickedItem] = useState(null);
 
   /**IMPORTANT: I tried to add onClick() at the <Item> level and it never worked.
    * Looks like we must add onClick event handlers at the basic HTML tags level.
@@ -16,38 +14,31 @@ export default function ItemContainer(props) {
 
   return (
     <>
-      <div className="item-container">
+      <div className="items-container">
         {defaultClothingItems.map((item) => {
           //debugger;
-          if (props.tempClass === item.weather) {
+          if (tempClass === item.weather) {
             return (
-              <Item
+              <ItemCard
                 key={item._id}
                 imageUrl={item.link}
                 name={item.name}
                 handleItemClick={() =>
                   setClickedItem({
-                    ...clickedItem,
                     name: item.name,
                     link: item.link,
                     tempClass: item.weather,
-                    state: true,
                   })
                 }
-              ></Item>
+              ></ItemCard>
             );
           }
         })}
       </div>
-      {clickedItem.state && (
+      {clickedItem && (
         <ItemModal
           clickedItem={clickedItem}
-          handleItemClose={() =>
-            setClickedItem({
-              ...clickedItem,
-              state: false,
-            })
-          }
+          handleItemClose={() => setClickedItem(null)}
         >
           <img src={clickedItem.link} className="item-modal__image" />
           <div className="item-modal__info-block">

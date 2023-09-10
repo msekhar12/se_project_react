@@ -1,18 +1,16 @@
-// import logo from "./logo.svg";
 import "./App.css";
-import React from "react";
+import { useState, useEffect } from "react";
 import { readWeatherData, getTempAndLocation } from "../../utils/weatherApi";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
-// import ModalWithForm from "./ModalWithFormOld/ModalWithForm";
-import Modal from "../Modal/Modal";
+import FormModal from "../FormModal/FormModal";
 
 function App() {
-  const [tempData, setTempData] = React.useState({});
-  const [addGarments, setAddGarments] = React.useState(false);
+  const [tempData, setTempData] = useState({});
+  const [addGarments, setAddGarments] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     readWeatherData()
       .then((data) => {
         const newData = getTempAndLocation(data);
@@ -25,7 +23,9 @@ function App() {
           night: newData.night,
         });
       })
-      .catch();
+      .catch((err) =>
+        console.log(`Error occurred while getting weather data. ${err}`)
+      );
   }, []);
 
   return (
@@ -43,7 +43,7 @@ function App() {
       <Footer />
 
       {addGarments && (
-        <Modal
+        <FormModal
           name="new-garment"
           heading="New Garment"
           id="new-garment"
@@ -51,11 +51,11 @@ function App() {
           handleCloseModalClick={() => setAddGarments(false)}
           onCloseModal={() => setAddGarments(false)}
         >
-          <label className="modal__label">
+          <label className="form-modal__label">
             Name
             <input
               type="text"
-              className="modal__text-input"
+              className="form-modal__text-input"
               placeholder="Name"
               required
               minLength="2"
@@ -63,17 +63,17 @@ function App() {
               id="new-garment-name"
               name="new-garment-name"
             />
-            <span className="modal__line"></span>
+            <span className="form-modal__line"></span>
             <span
-              className="modal__input-error"
+              className="form-modal__input-error"
               id="new-garment-name-error"
             ></span>
           </label>
-          <label className="modal__label">
+          <label className="form-modal__label">
             Image
             <input
               type="url"
-              className="modal__text-input"
+              className="form-modal__text-input"
               placeholder="Image URL"
               required
               minLength="2"
@@ -81,32 +81,32 @@ function App() {
               id="new-garment-url1"
               name="new-garment-url"
             />
-            <span className="modal__line"></span>
+            <span className="form-modal__line"></span>
             <span
-              className="modal__input-error"
+              className="form-modal__input-error"
               id="new-garment-url-error"
             ></span>
-            <div className="modal__radio-block">
-              <h3 className="modal__radio-block-heading">
+            <div className="form-modal__radio-block">
+              <h3 className="form-modal__radio-block-heading">
                 Select the weather type:
               </h3>
 
-              <div className="modal__radio-block_input">
+              <div className="form-modal__radio-block_input">
                 <input type="radio" id="hot" name="weather" value="hot" />
                 <label htmlFor="hot">Hot</label>
               </div>
-              <div className="modal__radio-block_input">
+              <div className="form-modal__radio-block_input">
                 <input type="radio" id="warm" name="weather" value="warm" />
                 <label htmlFor="warm">Warm</label>
               </div>
 
-              <div className="modal__radio-block_input">
+              <div className="form-modal__radio-block_input">
                 <input type="radio" id="cold" name="weather" value="cold" />
                 <label htmlFor="cold">Cold</label>
               </div>
             </div>
           </label>
-        </Modal>
+        </FormModal>
       )}
     </div>
   );

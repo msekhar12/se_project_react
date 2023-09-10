@@ -2,10 +2,10 @@ import "./ItemContainer.css";
 import Item from "../Item/Item";
 import ItemModal from "../ItemModal/ItemModal";
 import { defaultClothingItems } from "../../utils/constants";
-import React from "react";
+import React, { useState } from "react";
 
 export default function ItemContainer(props) {
-  const [clickedItem, setClickedItem] = React.useState({
+  const [clickedItem, setClickedItem] = useState({
     state: false,
   });
 
@@ -49,7 +49,7 @@ export default function ItemContainer(props) {
             })
           }
         >
-          <img src={clickedItem.link} />
+          <img src={clickedItem.link} className="item-modal__image" />
           <div className="item-modal__info-block">
             <h3 className="item-modal__info-block_text">{clickedItem.name}</h3>
             <h3 className="item-modal__info-block_text">{`Weather: ${clickedItem.tempClass}`}</h3>

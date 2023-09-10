@@ -7,13 +7,9 @@ function readWeatherData() {
   const long = location.longitude;
   const requestUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&appid=${weatherApiKey}`;
   const weatherData = fetch(requestUrl)
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
+    .then(processServerResponse)
     .catch((err) =>
-      console.log(`Error occurred while getting weather data. Error: ${err}`)
+      console.log(`Error occurred while getting weather data. ${err}`)
     );
   return weatherData;
 }
@@ -25,6 +21,13 @@ function checkIfNight(timeZone, sunRise, sunSet) {
   // console.log(`currentTime: ${currentTime}`);
   return !(currentTime >= sunRise * 1000 && currentTime <= sunSet * 1000);
 }
+
+const processServerResponse = (res) => {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Error: ${res.status}`);
+};
 
 function getTempAndLocation(weatherData) {
   const temp = weatherData.main.temp;
@@ -74,4 +77,4 @@ function getTempAndLocation(weatherData) {
   return { temp, location, tempClass, weatherCond, night };
 }
 
-export { readWeatherData, getTempAndLocation };
+export { readWeatherData, getTempAndLocation, processServerResponse };
